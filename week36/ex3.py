@@ -31,17 +31,17 @@ print(new_data[new_data['PClass'].eq('*')])
 survivor_data = {
     'Survived': ['Yes', 'No'],
     'Count': [new_data['Survived'].value_counts()[1], new_data['Survived'].value_counts()[0]],
-    'Percentage': [(new_data['Survived'].value_counts()[1]/new_data.shape[0]).round(2), (new_data['Survived'].value_counts()[0]/new_data.shape[0]).round(2)],
+    'Percentage': [(new_data['Survived'].value_counts()[1]/new_data.shape[0]).round(4)*100, (new_data['Survived'].value_counts()[0]/new_data.shape[0]).round(4)*100],
     'Male': [(new_data['Gender'].eq('male')&new_data['Survived'].eq(1)).value_counts()[True], (new_data['Gender'].eq('male')&new_data['Survived'].eq(0)).value_counts()[True]],
-    '%OfAllMale': [((new_data['Gender'].eq('male')&new_data['Survived'].eq(1)).value_counts()[True]/new_data['Gender'].value_counts()['male']).round(2),
-                ((new_data['Gender'].eq('male')&new_data['Survived'].eq(0)).value_counts()[True]/new_data['Gender'].value_counts()['male']).round(2)],
-    '%OfSurvivorsMale': [((new_data['Gender'].eq('male')&new_data['Survived'].eq(1)).value_counts()[True]/new_data['Survived'].value_counts()[1]).round(2),
-                ((new_data['Gender'].eq('male')&new_data['Survived'].eq(0)).value_counts()[True]/new_data['Survived'].value_counts()[0]).round(2)],
+    '%OfAllMale': [((new_data['Gender'].eq('male')&new_data['Survived'].eq(1)).value_counts()[True]/new_data['Gender'].value_counts()['male']).round(4)*100,
+                ((new_data['Gender'].eq('male')&new_data['Survived'].eq(0)).value_counts()[True]/new_data['Gender'].value_counts()['male']).round(4)*100],
+    '%OfSurvivorsMale': [((new_data['Gender'].eq('male')&new_data['Survived'].eq(1)).value_counts()[True]/new_data['Survived'].value_counts()[1]).round(2)*100,
+                ((new_data['Gender'].eq('male')&new_data['Survived'].eq(0)).value_counts()[True]/new_data['Survived'].value_counts()[0]).round(4)*100],
     'Female': [(new_data['Gender'].eq('female')&new_data['Survived'].eq(1)).value_counts()[True], (new_data['Gender'].eq('female')&new_data['Survived'].eq(0)).value_counts()[True]],
-    '%OfAllFemale': [((new_data['Gender'].eq('female')&new_data['Survived'].eq(1)).value_counts()[True]/new_data['Gender'].value_counts()['female']).round(2),
-                ((new_data['Gender'].eq('female')&new_data['Survived'].eq(0)).value_counts()[True]/new_data['Gender'].value_counts()['female']).round(2)],
-    '%OfSurvivorsFemale': [((new_data['Gender'].eq('female')&new_data['Survived'].eq(1)).value_counts()[True]/new_data['Survived'].value_counts()[1]).round(2),
-                ((new_data['Gender'].eq('female')&new_data['Survived'].eq(0)).value_counts()[True]/new_data['Survived'].value_counts()[0]).round(2)]}
+    '%OfAllFemale': [((new_data['Gender'].eq('female')&new_data['Survived'].eq(1)).value_counts()[True]/new_data['Gender'].value_counts()['female']).round(4)*100,
+                ((new_data['Gender'].eq('female')&new_data['Survived'].eq(0)).value_counts()[True]/new_data['Gender'].value_counts()['female']).round(4)*100],
+    '%OfSurvivorsFemale': [((new_data['Gender'].eq('female')&new_data['Survived'].eq(1)).value_counts()[True]/new_data['Survived'].value_counts()[1]).round(4)*100,
+                ((new_data['Gender'].eq('female')&new_data['Survived'].eq(0)).value_counts()[True]/new_data['Survived'].value_counts()[0]).round(4)*100]}
 
 survivor_data = pd.DataFrame(survivor_data,
                              columns = ['Survived', 'Count', 'Percentage', 'Male', '%OfAllMale', '%OfSurvivorsMale', 'Female', '%OfAllFemale', '%OfSurvivorsFemale'])
