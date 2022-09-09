@@ -14,7 +14,9 @@ class Fraction:
     
     def simplify(self):
         gcd = GCD(self.numerator, self.denominator)
-        print(f"Reduced number is: {int(self.numerator/gcd)}/{int(self.denominator/gcd)}")
+        self.numerator = int(self.numerator/gcd)
+        self.denominator = int(self.denominator/gcd)
+        print(f"Reduced number is: {self.numerator}/{self.denominator}")
         return
 
 
@@ -25,10 +27,11 @@ def GCD(x, y):
 
 if __name__ == "__main__":
     while True:
-        choice = input("Give choice:\n\
-            1: Random numbers\n\
-            2: Choose numbers\n\
-            9: Quit: ")
+        choice = input(
+"Give choice:\n\
+1: Random numbers\n\
+2: Choose numbers\n\
+9: Quit: ")
 
         match choice:
             case '1':
