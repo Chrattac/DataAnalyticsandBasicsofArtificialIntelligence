@@ -42,6 +42,7 @@ df3['age'] = pd.to_datetime("today").year-pd.to_datetime(df3['bdate']).dt.year
 #add age_group
 df3['age_group'] = np.ceil(df3['age']/5)*5
 
+
 print(df3[['age', 'age_group']])
 
 #choose only salary, age and gender into new dataframe
